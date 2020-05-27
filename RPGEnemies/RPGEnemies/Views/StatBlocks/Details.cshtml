@@ -1,0 +1,108 @@
+﻿@model RPGEnemies.Models.StatBlocks
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.CharacterName)</h4>
+    <hr />
+    <table class="table table-dark table-striped">
+        <tbody>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Brawn)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Brawn)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Agility)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Agility)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Intellect)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Intellect)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cunning)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Cunning)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Willpower)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Willpower)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Presence)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Presence)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Description)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Talents)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Talents)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Abilities)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Abilities)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Weapons)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Weapons)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Skills)
+                </th>
+                <td>
+                    @Html.DisplayFor(model => model.Skills)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CharacterName">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

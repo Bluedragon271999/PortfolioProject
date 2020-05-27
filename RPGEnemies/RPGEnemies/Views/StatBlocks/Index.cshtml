@@ -1,0 +1,127 @@
+﻿@model PaginatedList<RPGEnemies.Models.StatBlocks>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>
+                Character Name
+            </th>
+            <th>
+                Brawn
+            </th>
+            <th>
+                Agility
+            </th>
+            <th>
+                Intellect
+            </th>
+            <th>
+                Cunning
+            </th>
+            <th>
+                Willpower
+            </th>
+            <th>
+                Presence
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Talents
+            </th>
+            <th>
+                Abilities
+            </th>
+            <th>
+                Weapons
+            </th>
+            <th>
+                Skills
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CharacterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brawn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Agility)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Intellect)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cunning)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Willpower)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Presence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Talents)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Abilities)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weapons)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skills)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CharacterName">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CharacterName">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageIndex="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-light @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageIndex="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-light @nextDisabled">
+    Next
+</a>
